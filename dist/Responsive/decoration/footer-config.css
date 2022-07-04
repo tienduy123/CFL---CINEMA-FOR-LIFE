@@ -1,0 +1,36 @@
+footer {
+      display: flex;
+      height: 350px;
+      border-top: 3px solid rgb(58, 0, 0);
+      background: linear-gradient(#181818, 50%, rgb(32, 32, 32));
+}
+.footer-contact {
+      align-self: center;
+      flex: 1;
+      border-right: 1px solid black;
+      text-align: center;
+}
+.footer-address {
+      align-self: center;
+      flex: 2;
+      border-right: 1px solid black;
+      text-align: center;
+}
+.footer-fanpage {
+      align-self: center;
+      flex: 1;
+      text-align: center;
+}
+
+li {
+      font-family: Aller;
+      margin-top: 15px;
+      color: rgb(8, 8, 8);
+      list-style-type: none;
+}
+h2 {
+      color: rgb(255, 255, 255);
+      font-family: Gelanos;
+      text-decoration: underline 3px rgb(87, 36, 36);
+      text-decoration-style: dotted;
+}

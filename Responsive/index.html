@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CFL - Cinema For Life</title>
+      <link rel="icon" href="./resource/logo.png">
+      <link rel="stylesheet" href="./decoration/header-config.css">
+      <link rel="stylesheet" href="./decoration/main-config.css">
+      <link rel="stylesheet" href="./decoration/footer-config.css">
+      <link rel="stylesheet" href="./decoration/sliding.css">
+      <link rel="stylesheet" href="./decoration/font-config.css">
+</head>
+<body>
+      <div id="app" class="container">
+            <header>
+                  <div class="logo">
+                        <img src="./resource/logo.png" alt="cfl">
+                        <h3 id="gradient-text" class="logo-name">CINEMA4LIFE</h3>
+                  </div>
+                  <div class="button-container">
+                        <button class="register-button">ĐĂNG KÝ</button>
+                        <button class="login-button">ĐĂNG NHẬP</button>
+                  </div>
+            </header>
+            <main>
+                  <div class="introduce-section">
+                        <button class="order" id="center">PRE-ORDER</button>
+                  </div>
+                  <section class="presentation">
+                       <div class="movie-slider">
+                              <div class="banner-slides">
+                                    <input type="radio" name="radio-btn" id="rdo1">
+                                    <input type="radio" name="radio-btn" id="rdo2">
+                                    <input type="radio" name="radio-btn" id="rdo3">
+                                    <input type="radio" name="radio-btn" id="rdo4">
+                                    <div class="slide first">
+                                          <img src="./resource/wallpaper/endgame.png" alt="endgame">
+                                    </div>
+                                    <div class="slide">
+                                          <img src="./resource/wallpaper/strange.jpg" alt="strange">
+                                    </div>
+                                    <div class="slide">
+                                          <img src="./resource/wallpaper/fate-stay-night-UBW.png" alt="staynight">
+                                    </div>
+                                    <div class="slide">
+                                          <img src="./resource/wallpaper/mugen.jpg" alt="kny">
+                                    </div>
+                                    <div class="auto-navigation">
+                                          <div class="auto-btn1"></div>
+                                          <div class="auto-btn2"></div>
+                                          <div class="auto-btn3"></div>
+                                          <div class="auto-btn4"></div>
+                                    </div>
+                                    <div class="manual-navigation">
+                                          <label for="rdo1" class="manual-btn"></label>
+                                          <label for="rdo2" class="manual-btn"></label>
+                                          <label for="rdo3" class="manual-btn"></label>
+                                          <label for="rdo4" class="manual-btn"></label>
+                                    </div>
+                              </div>
+                              
+                        </div>
+                        <div class="upcoming-movies-section">
+                              <h1 align="center">
+                                    UPCOMING MOVIES
+                              </h1>
+                              <div class="movie-container">
+                                    <div class="banner">
+                                          <img src="./resource/img/movie/george-britton-infinitywarposterv2.jpg" width="100%" alt="bn">
+                                    </div>
+                                    <div class="banner">
+                                          <img src="./resource/img/movie/george-britton-endgameposter-v2-2.jpg" width="100%" alt="bn">
+                                    </div>
+                                    <div class="banner">
+                                          <img src="./resource/img/movie/uZpmwyfL6sIq0yzn5Dbar8QXRNa.jpg" width="100%" alt="bn">
+                                    </div>
+                                    <div class="banner">
+                                          <img src="./resource/img/movie/z5eXoDHxzgq1fuTc1xWK4ZaAxmX.jpg" width="100%" alt="bn">
+                                    </div>
+                                    <div class="banner">
+                                          <img src="./resource/img/movie/george-britton-spidermanffhposter-comic-mysterio.jpg" width="100%" alt="bn">
+                                    </div>
+                              </div>
+                              <div class="movie-name">
+                                    <movie-name
+                                          v-for="name in m_names"
+                                          v-bind:key="name.id"
+                                          v-bind:m_name="name.m_name"
+                                    ></movie-name>
+                              </div>
+                        </div>
+                  </section>
+            </main>
+            <footer>
+                  <div class="footer-contact">
+                        <h2>CONTACT</h2>
+                        <ol>
+                              <footer-list
+                                    v-for="l in list_contacts"
+                                    v-bind:key="l.id"
+                                    v-bind:list="l.list"
+                              ></footer-list>
+                        </ol>
+                  </div>
+                  <div class="footer-address">
+                        <h2>ADDRESS</h2>
+                        <ol>
+                              <footer-list
+                                    v-for="l in list_addresses"
+                                    v-bind:key="l.id"
+                                    v-bind:list="l.list"
+                              ></footer-list>
+                        </ol>
+                  </div>
+                  <div class="footer-fanpage">
+                        <h2>FANPAGE</h2>
+                        <ol>
+                              <footer-list
+                                    v-for="l in list_fanpages"
+                                    v-bind:key="l.id"
+                                    v-bind:list="l.list"
+                              ></footer-list>
+                        </ol>
+                  </div>
+            </footer>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      <script src="./config/index.js"></script>
+</body>
+</html>

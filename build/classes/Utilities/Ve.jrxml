@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="360" pageHeight="360" columnWidth="320" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="68cca3fa-8ff6-4a25-b896-802430c513f0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaVe" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Ve."MaVe" AS Ve_MaVe,
+     Ve."MaPhong" AS Ve_MaPhong,
+     Ve."MaGhe" AS Ve_MaGhe,
+     Ve."GioChieu" AS Ve_GioChieu,
+     Phim."TenPhim" AS Phim_TenPhim,
+     LichChieu."NgayChieu" AS LichChieu_NgayChieu,
+     Phim."DinhDang" AS Phim_DinhDang,
+     Ghe."GiaGhe" AS Ghe_GiaGhe
+FROM
+     "dbo"."Phim" Phim INNER JOIN "dbo"."Ve" Ve ON Phim."MaPhim" = Ve."MaPhim"
+     INNER JOIN "dbo"."LichChieu" LichChieu ON LichChieu."MaLichChieu" = Ve."MaLichChieu"
+     INNER JOIN "dbo"."Ghe" Ghe ON Ve."MaGhe" = Ghe."MaGhe"
+     AND Ghe."GioChieu" = Ve."GioChieu"
+     AND Ghe."MaPhong" = Ve."MaPhong"
+WHERE
+     MaVe = $P{MaVe}]]>
+	</queryString>
+	<field name="Ve_MaVe" class="java.lang.String"/>
+	<field name="Ve_MaPhong" class="java.lang.String"/>
+	<field name="Ve_MaGhe" class="java.lang.String"/>
+	<field name="Ve_GioChieu" class="java.lang.String"/>
+	<field name="Phim_TenPhim" class="java.lang.String"/>
+	<field name="LichChieu_NgayChieu" class="java.sql.Date"/>
+	<field name="Phim_DinhDang" class="java.lang.String"/>
+	<field name="Ghe_GiaGhe" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="320" height="37" uuid="2ddab3c1-0f09-4751-b045-cf40814360cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[VE XEM PHIM CFL CINEMA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="79" width="320" height="1" uuid="fb6e0107-c8bf-4ddb-9351-b37996d0166d"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="2" y="37" width="318" height="20" uuid="626a188c-0be5-487e-bc5b-8e4f8c5d2aa8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CONG TY CO PHAN VA TRACH NHIEM HUU CFL CINEMA - HCM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="57" width="318" height="20" uuid="bedbb788-1487-4fab-8a76-c9b5754081af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DC: 1/17 PASTEUR, QUAN 1, TP HCM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="319" height="20" uuid="d8f36546-9a3d-405b-96d5-5a5d79b3ae0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Phim_TenPhim} + " - " + $F{Phim_DinhDang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="107" splitType="Stretch">
+			<textField>
+				<reportElement x="64" y="2" width="60" height="20" uuid="cf5664c8-9135-4a8f-8010-e0284e16f308"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ve_MaVe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="43" height="20" uuid="10e871dd-cead-4588-ac16-8fab97e887d7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="2" width="94" height="20" uuid="b2eedd51-bbd9-473b-b644-df6a16dfb584"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd-MM-yyyy").format($F{LichChieu_NgayChieu})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="142" y="40" width="59" height="20" uuid="e5d4fe18-6f60-423e-a304-e0616da5fece"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHOW:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="40" width="47" height="20" uuid="9cd0245c-f7aa-41d1-bf83-c69820058fd1"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ve_GioChieu}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="142" y="2" width="48" height="20" uuid="834b0493-5741-4d03-b2fc-cac0886987a3"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SAT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="40" width="42" height="20" uuid="0c4bbd0e-05d6-47f9-b6b9-157884ad7013"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEAT:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="40" width="60" height="20" uuid="7454f1ee-af31-4ae5-be5c-d3df1b18cb5e"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ve_MaGhe} + " - " + $F{Ve_MaPhong}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="78" width="54" height="20" uuid="b9c7c54e-45f3-4629-ba32-54c10963e752"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="78" width="78" height="20" uuid="5332ea3b-ab22-4524-acdc-d5ebacbc0cfb"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Ghe_GiaGhe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="1" width="319" height="19" uuid="3bd11239-c517-4351-8c99-036936a4a652"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHUC QUY KHACH XEM PHIM VUI VE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="0" width="319" height="1" uuid="bf6f3c48-81d4-413b-872f-f67306c30c9a"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="20" width="318" height="16" uuid="d0428818-7978-426c-bb2d-3a212cd162c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WWW.CFLCINEMA.COM]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

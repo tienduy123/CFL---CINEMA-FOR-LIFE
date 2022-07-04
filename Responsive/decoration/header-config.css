@@ -1,0 +1,70 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+.container {
+      background: radial-gradient(rgb(29, 29, 29),rgb(0, 0, 0));
+}
+header {
+      margin: auto;
+      width: 95%;
+      display: flex;
+      align-items: center;
+      height: 10vh;
+      border-bottom: 1px solid rgb(58, 0, 0);
+}
+.logo {
+      flex: 1;
+      display: flex;
+}
+.logo > img {
+      width: 5%;
+}
+.logo-name {
+      font-family: Butler;
+      align-self: center;
+      margin: 15px;
+      font-size: 36px;
+}
+#gradient-text {
+      background: -webkit-linear-gradient(rgb(238, 255, 0), rgb(255, 0, 0));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.button-container {
+      justify-content: flex-end;
+}
+.register-button {
+      font-family: Aller;
+      width: 200px;
+      height: 50px;
+      background-color: rgb(255, 16, 16);
+      border-style: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      transition-duration: .5s;
+}
+.register-button:hover {
+      background-color: white;
+      color: black;
+      transition-duration: .5s;
+      cursor: pointer;
+}
+.login-button {
+      font-family: Aller;
+      width: 200px;
+      height: 50px;
+      border-style: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition-duration: 1s;
+}
+.login-button:hover {
+      background-color: rgb(255, 16, 16);
+      color: white;
+      transition-duration: .5s;
+      cursor: pointer;
+}

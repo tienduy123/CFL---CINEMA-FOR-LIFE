@@ -1,0 +1,102 @@
+main {
+      margin: auto;
+}
+h1 {
+      font-family: Qanelas;
+      font-size: 72px;
+      text-shadow: 2px 4px #ff3838;
+      color: rgb(20, 20, 20);
+      border-bottom: 3px solid rgb(58, 0, 0);
+}
+.presentation {
+      background-color: white;
+}
+.introduce-section {
+      margin-top: 10px;
+      height: 900px;
+      box-shadow: inset 0 0 5em 1em #000;
+      align-items: center;
+      background:
+            radial-gradient(transparent, 25%, black),
+            url(../resource/img/teahub.io-movie-theater-wallpaper-2569980.png);
+      background-size: cover;
+}
+.upcoming-movies-section {
+      padding-top: 120px;
+      margin: auto;
+      height: 1000px;
+      background-color: rgb(255, 230, 230);
+}
+.movie-container {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      margin-top: 120px;
+}
+
+#center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+.order {
+      font-family: 'Open Sans';
+      width: 500px;
+      height: 100px;
+      font-size: 38px;
+      background-color: rgb(255, 16, 16);
+      border-style: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      transition-duration: .5s;
+}
+.order:hover {
+      font-size: 35px;
+      background-color: rgb(255, 183, 183);
+      color: black;
+      transition-duration: .5s;
+      cursor: pointer;
+}
+.banner {
+      flex: 1;
+      margin: 15px;
+      width: 300px;
+      height: fit-content;
+      border: 1px solid rgb(58, 0, 0);
+      border-radius: 8px;
+      background-color: rgb(58, 0, 0);
+      overflow: hidden;
+      transition-duration: .5s;
+}
+.banner:hover {
+      cursor: pointer;
+      transform: scale(95%);
+      opacity: 0.7;
+      transition-duration: .5s;
+}
+img {
+      transition-duration: .5s;
+}
+
+.movie-name {
+      width: 90%;
+      margin: auto;
+      display: flex;
+}
+.movie-name > h3 {
+      font-family: Aller;
+      flex: 1;
+      font-size: 22px;
+      text-align: center;
+}
+.movie-name-bg {
+      background-color: rgb(65, 0, 0);
+      height: 30px;
+      border-bottom: 3px solid rgb(255, 114, 114);
+      border-radius: 50px;
+}

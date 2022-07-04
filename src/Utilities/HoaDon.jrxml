@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="360" pageHeight="540" columnWidth="320" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7735408d-df94-430a-aa55-ab4901f5c28b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="83bb5fff-2b6c-4f29-8ac5-f0ad59595dfb"/>
+	<parameter name="MaHoaDon" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     HoaDon."MaHoaDon" AS HoaDon_MaHoaDon,
+     HoaDon."TongTien" AS HoaDon_TongTien,
+     HoaDon."MaKM" AS HoaDon_MaKM,
+     HoaDon."MaKHTT" AS HoaDon_MaKHTT,
+     HoaDon."MucGiamGia" AS HoaDon_MucGiamGia,
+     HoaDon."ThanhTien" AS HoaDon_ThanhTien,
+     HoaDon."NgayLap" AS HoaDon_NgayLap,
+     HoaDon."TrangThai" AS HoaDon_TrangThai,
+     HoaDon."MaNhanVien" AS HoaDon_MaNhanVien,
+     HoaDonChiTiet."MaHoaDonChiTiet" AS HoaDonChiTiet_MaHoaDonChiTiet,
+     HoaDonChiTiet."MaDichVu" AS HoaDonChiTiet_MaDichVu,
+     HoaDonChiTiet."MaVe" AS HoaDonChiTiet_MaVe,
+     HoaDonChiTiet."GiaTien" AS HoaDonChiTiet_GiaTien,
+     HoaDonChiTiet."SoLuong" AS HoaDonChiTiet_SoLuong,
+     HoaDonChiTiet."ThanhTien" AS HoaDonChiTiet_ThanhTien
+FROM
+     "dbo"."HoaDon" HoaDon INNER JOIN "dbo"."HoaDonChiTiet" HoaDonChiTiet ON HoaDon."MaHoaDon" = HoaDonChiTiet."MaHoaDon"
+WHERE
+     HoaDon."MaHoaDon" = $P{MaHoaDon}]]>
+	</queryString>
+	<field name="HoaDon_MaHoaDon" class="java.lang.String"/>
+	<field name="HoaDon_TongTien" class="java.lang.Double"/>
+	<field name="HoaDon_MaKM" class="java.lang.String"/>
+	<field name="HoaDon_MaKHTT" class="java.lang.String"/>
+	<field name="HoaDon_MucGiamGia" class="java.lang.Integer"/>
+	<field name="HoaDon_ThanhTien" class="java.lang.Double"/>
+	<field name="HoaDon_NgayLap" class="java.sql.Timestamp"/>
+	<field name="HoaDon_TrangThai" class="java.lang.Boolean"/>
+	<field name="HoaDon_MaNhanVien" class="java.lang.String"/>
+	<field name="HoaDonChiTiet_MaHoaDonChiTiet" class="java.lang.String"/>
+	<field name="HoaDonChiTiet_MaDichVu" class="java.lang.String"/>
+	<field name="HoaDonChiTiet_MaVe" class="java.lang.String"/>
+	<field name="HoaDonChiTiet_GiaTien" class="java.lang.Double"/>
+	<field name="HoaDonChiTiet_SoLuong" class="java.lang.Integer"/>
+	<field name="HoaDonChiTiet_ThanhTien" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="320" height="31" uuid="281a0112-df23-464c-b153-4cda90bd7943"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HOA DON DICH VU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="34" width="320" height="31" uuid="f566a05e-2542-4ec0-9f3e-7ef2fc335801"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CFL CINEMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="90" width="318" height="20" uuid="664b6d99-c2be-49aa-8ad4-1406b2fb4a9e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DC: 1/17 PASTEUR, QUAN 1, TP HCM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="70" width="318" height="20" uuid="4a058fba-ead0-4aa8-b6d9-92d76489b489"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CONG TY CO PHAN VA TRACH NHIEM HUU CFL CINEMA - HCM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="13" width="320" height="20" uuid="21f72060-149e-457b-b81f-e15cb00053b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ma Hoa Don: " + $F{HoaDon_MaHoaDon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="33" width="320" height="20" uuid="5948b29f-94b0-4f0a-9f51-b748ec79b2a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ngay Lap: " + new SimpleDateFormat("dd-MM-yyyy").format($F{HoaDon_NgayLap})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="14" width="70" height="20" uuid="5ae28109-f9f7-46b2-92cf-eca43187ae9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DICH VU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="14" width="93" height="20" uuid="1c7de389-b69b-4c78-9f65-18903b2ccac5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GIA TIEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="14" width="70" height="20" uuid="572d4f3f-e17f-48ef-b1ca-24dce1ba0d9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SO LUONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="14" width="87" height="20" uuid="a593a2c1-abcb-4b0e-af1c-83d5018af148"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[THANH TIEN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20" uuid="a106be8e-a56d-455d-bad8-4c9a0ca38518"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($F{HoaDonChiTiet_MaDichVu} + $F{HoaDonChiTiet_MaVe}).replaceAll( "null", "" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="0" width="70" height="20" uuid="645234ba-fb56-4f93-a7d4-4cd9b1561af5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{HoaDonChiTiet_SoLuong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="93" height="20" uuid="b040eb65-1c3e-4b56-b339-8da0e68c0f2d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{HoaDonChiTiet_GiaTien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="0" width="87" height="20" uuid="1fe5bb4f-9794-455d-8384-42a949daf418"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{HoaDonChiTiet_ThanhTien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="105" splitType="Stretch">
+			<textField>
+				<reportElement x="233" y="0" width="87" height="20" uuid="1462dfc4-a353-4a94-a1a5-86026ba94e84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HoaDon_TongTien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="20" width="87" height="20" uuid="b4f1945e-28a4-4719-8904-50a3e746bf8a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HoaDon_MaKM}.replaceAll( "null", "NONE" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="40" width="87" height="20" uuid="8c5398a7-a512-4537-8b38-f919e652fa44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HoaDon_MaKHTT}.replaceAll( "null", "NONE" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="60" width="87" height="20" uuid="f6e3f437-dbc2-4b9c-bd7e-e191a33a6026"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HoaDon_MucGiamGia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="80" width="87" height="20" uuid="16d8a597-f97f-42d5-be9c-78d31079324a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{HoaDon_ThanhTien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="0" width="70" height="20" uuid="ca5e6068-e171-4892-a9c4-f2c6e449dd8b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Tong Tien:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="40" width="70" height="20" uuid="28758741-6ffd-4059-aab1-baea4edeed2f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Ma KHTT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="20" width="70" height="20" uuid="b7a68b73-8107-4476-ac50-479a26f48fda"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Ma KM:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="60" width="70" height="20" uuid="494a3f8c-a061-4ce1-b137-47d7be4c4c3c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Muc GG:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="80" width="70" height="20" uuid="bd675ac3-8296-4440-97a5-90bc004e7975"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Thanh tien:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="320" height="20" uuid="e600bb3c-ece2-47ba-ac31-e31932e9772d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CAM ON QUY KHACH DA SU DUNG DICH VU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="20" width="318" height="16" uuid="04b515d4-cfcf-44d6-b947-7ba1e5626e50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WWW.CFLCINEMA.COM]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
